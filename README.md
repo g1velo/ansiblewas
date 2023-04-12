@@ -32,4 +32,15 @@ pip3 install --user "openstacksdk==0.51.0" "python-openstackclient==5.4.0" dnspy
 
 2.1. Create the openstack configuration file in your home directory
 
-vi clouds.yaml clouds: idXXXXXXXX: auth: auth_url: https://10.3.44.65:5000/v3/ domain_name: Default username: idXXXXXXXX password: Provided_password project_name: ansiblewas verify: false
+#### vi clouds.yaml 
+#### clouds: 
+####   youcloudname: 
+####     auth: 
+####       auth_url: https://10.3.44.65:5000/v3/ 
+####       domain_name: Default 
+####       username: YourUser 
+####       password: YourPassword 
+####       project_name: MyProject  
+####     verify: false
+
+
