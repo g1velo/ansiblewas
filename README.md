@@ -20,3 +20,16 @@ The objectives of this lab are :
 Below is an architecture diagram describing the environment:  
   
   ![alt text](./img/Slide3.JPG)
+
+
+2. Installing ansible openstack python modules
+
+For ansible to be able to interact with PowerVC, you need to install openstacksdk.
+
+Run this command to do so :
+
+pip3 install --user "openstacksdk==0.51.0" "python-openstackclient==5.4.0" dnspython dig
+
+2.1. Create the openstack configuration file in your home directory
+
+vi clouds.yaml clouds: idXXXXXXXX: auth: auth_url: https://10.3.44.65:5000/v3/ domain_name: Default username: idXXXXXXXX password: Provided_password project_name: ansiblewas verify: false
