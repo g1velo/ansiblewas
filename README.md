@@ -28,11 +28,12 @@ For ansible to be able to interact with PowerVC, you need to install openstacksd
 
 Run this command to do so :
 
-pip3 install --user "openstacksdk==0.51.0" "python-openstackclient==5.4.0" dnspython dig
+> pip3 install --user "openstacksdk==0.51.0" "python-openstackclient==5.4.0" dnspython dig
 
 2.1. Create the openstack configuration file in your home directory
 
-#### vi clouds.yaml 
+'vi clouds.yaml'
+ 
 #### clouds: 
 ####   youcloudname: 
 ####     auth: 
