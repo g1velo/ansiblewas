@@ -101,6 +101,3 @@ wait_for: will wait for the VM to boot up and the ssh port to be open
 
 > ansible-playbook mkvm.yaml -v
 
-
-
-
