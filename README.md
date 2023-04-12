@@ -73,15 +73,15 @@ Of course you need to update PowerVC IP Address or hostname, user name , passwor
       state: present 
     register: vm 
     
-    - name: Showing newly assigned IP address 
-      debug: 
-        msg: the IP address is "{{ vm.server.public_v4 }}" 
+  - name: Showing newly assigned IP address 
+    debug: 
+      msg: the IP address is "{{ vm.server.public_v4 }}" 
         
-    - name: Waits for SSH port 22 to open 
-      wait_for: 
-        host: "{{ vm.server.public_v4 }}" 
-        delay: 5 
-        port: 22
+  - name: Waits for SSH port 22 to open 
+    wait_for: 
+      host: "{{ vm.server.public_v4 }}" 
+      delay: 5 
+       port: 22
 ``` 
 
 Let’s explain what we are doing here :
