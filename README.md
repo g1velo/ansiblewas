@@ -39,7 +39,7 @@ Run this command to do so :
 clouds: 
    youcloudname: 
      auth: 
-       auth_url: https://10.3.44.65:5000/v3/ 
+       auth_url: https://PowerVCIPaddress:5000/v3/ 
        domain_name: Default 
        username: YourUser 
        password: YourPassword 
