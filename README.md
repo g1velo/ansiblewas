@@ -46,3 +46,4 @@ clouds:
        project_name: MyProject  
      verify: false
 ```
+Of course you need to update PowerVC IP Address or hostname, user name , password and project name accordingly with you current setup. 
