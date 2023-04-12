@@ -33,15 +33,15 @@ Run this command to do so :
 2.1. Create the openstack configuration file in your home directory
 
 'vi clouds.yaml'
- 
-#### clouds: 
-####   youcloudname: 
-####     auth: 
-####       auth_url: https://10.3.44.65:5000/v3/ 
-####       domain_name: Default 
-####       username: YourUser 
-####       password: YourPassword 
-####       project_name: MyProject  
-####     verify: false
+
+`clouds: 
+   youcloudname: 
+     auth: 
+       auth_url: https://10.3.44.65:5000/v3/ 
+       domain_name: Default 
+       username: YourUser 
+       password: YourPassword 
+       project_name: MyProject  
+     verify: false`
 
 
