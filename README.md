@@ -47,3 +47,60 @@ clouds:
      verify: false
 ```
 Of course you need to update PowerVC IP Address or hostname, user name , password and project name accordingly with you current setup. 
+
+``` yaml
+--- 
+- hosts: localhost 
+  gather_facts: false 
+  tasks: 
+  - name: adding ssh key to powervc 
+    os_keypair: 
+      cloud: idXXXXXXXX  # must refer to what is in clouds.yaml
+      state: present 
+      name: ansible_key_idXXXXXXXX 
+      public_key_file: /home/idXXXXXXXX/.ssh/id_rsa.pub 
+  - name: Create a new VM instance 
+    os_server: 
+      cloud: idXXXXXXXX   # must refer to what is in clouds.yaml
+      name: vmidXXXXXXXX  # The VM Name you want to create 
+      image: AIX72_40GB   # The image you want to use to create the VM/LPAR
+      flavor: was         # AKA Compute Template in PowerVC
+      key_name: ansible_key_idXXXXXXXX  # the key name ( Not mandatory )
+      availability_zone: "Default Group" 
+      nics: 
+        - net-name: VL344 # The VLAN Name as in PowerVC
+      timeout: 900 
+      state: present 
+    register: vm 
+    
+    - name: Showing newly assigned IP address 
+      debug: 
+        msg: the IP address is "{{ vm.server.public_v4 }}" 
+        
+    - name: Waits for SSH port 22 to open 
+      wait_for: 
+        host: "{{ vm.server.public_v4 }}" 
+        delay: 5 
+        port: 22
+``` 
+
+Let’s explain what we are doing here :
+
+> os_keypair: let you upload your public ssh key to PowerVC, it will be used at deployment time so that you won’t need a password authentication.
+
+> public_key_file: /home/idXXXXXXXX/.ssh/id_rsa.pub represents the ssh public key file. It has been created for you during the demo setup using ssh-keygen command. It is located in your home directory.
+
+> os_server: Creates the VM on the cloud name found in clouds.yaml previously created file.
+
+Note: We provided VMname, image name to use and VLAN to connect to
+
+Once the VM is created, it is a good idea the get the IP address that PowerVC has automatically set. This is done with : debug:
+wait_for: will wait for the VM to boot up and the ssh port to be open
+
+
+
+> ansible-playbook mkvm.yaml -v
+
+
+
+
