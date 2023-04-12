@@ -44,4 +44,15 @@ Run this command to do so :
        project_name: MyProject  
      verify: false`
 
-
+``` yaml
+# YAML
+clouds: 
+   youcloudname: 
+     auth: 
+       auth_url: https://10.3.44.65:5000/v3/ 
+       domain_name: Default 
+       username: YourUser 
+       password: YourPassword 
+       project_name: MyProject  
+     verify: false
+```
